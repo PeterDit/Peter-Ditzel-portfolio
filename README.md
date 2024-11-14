@@ -1,2 +1,5 @@
-# Peter-Ditzel-portfolio
-This is my personal portfolio. I'll use this to describe my skills and showcase projects I complete.
+# Projects
+This folder showcases projects I have completed.
+## Contens 
+* project 1
+* project 2
