@@ -1,0 +1,11 @@
+# YOUR PROJECT TITLE
+#### Video Demo:  <URL HERE>
+#### Description:
+
+My final project is currently a website with two pages. One is the welcome page, and the other is the contact page, where the user can submit a form with their name, email, and choose from three different products. In index.html, I created a front page that includes a background color, a simple navbar with links to Home and Contact, basic text, and a footer. The Navbar and Footer are also used on the second page (Contact). I looked at some big tech companies for design inspiration and realized they keep things simple, so I decided to use bright and smooth colors.
+
+I tried different designs and changed them multiple times but ended up sticking with a simple approach so the user wouldn’t be overwhelmed by the UI. Then, I started using containers to group text, footer, and so on, realizing it helped with organization. In contact.html, I implemented a moving background GIF, which was tricky to work with. Initially, I had the whole landing page with the background video, but I later decided to make a small window with the video running in the background. I had trouble with the CSS code to position it correctly, including adjusting the width and height of the video. By changing the format to GIF and using the <img src=""> tag, I found a good solution and placement for the GIF behind the submit form.
+
+Speaking of the submit form, it took me several hours to figure out how to use it properly because I wanted to save the input to an external file. I realized the easiest way was to use a Google spreadsheet and create a script, then connect the API to the form. I thought about using an SQLite3 database as well, but using Flask with the Google form messed up my code, so I decided to stick with the spreadsheet and skip the SQLite database.
+
+The design of the submit form also took hours of trial and error. At one point, the footer got combined with the submit container since the submit form stretched to the end of the page. I had to figure out how to separate them, so I adjusted the container size of the submit form multiple times. I also used a checkbox design that I found online to make it look better, but changed the color to blue when clicked to match the website’s theme. The same goes for the submit button.

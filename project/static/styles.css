@@ -1,0 +1,258 @@
+html, body {
+    background-color: #ececec !important;
+    background-size: cover;
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.video-container {
+    width: 90%;
+    height: 550px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container video {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+}
+
+.container-frontpage {
+    margin-top: 100px;
+    margin-right: 60%;
+}
+
+.p1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #887777;
+}
+
+.h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #887777;
+}
+
+.header-container h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 70px;
+    color: #79bedf;
+    margin: 0;
+    padding: 0;
+    margin-top: -15px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px; /* adjust the size as needed */
+}
+
+.small-icon {
+    width: 180px; /* Adjust this value as needed */
+    height: auto; /* Maintain aspect ratio */
+}
+
+
+.nav-link {
+    color:rgb(0, 0, 0) !important;
+    font-size: 25px !important;
+    padding: 10px 20px !important;
+    font-weight: lighter !important;
+   
+}
+
+.nav-link:hover {
+    color: #8a6d6d !important;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    z-index: 10; /* Keeps the footer above other content */
+}
+
+footer a {
+    color:rgb(110, 96, 96);
+    text-decoration: none;
+    padding: 10px;
+}
+
+footer a:hover {
+    color: #887777
+}
+
+
+.text-container {
+    width: 80%;
+    margin-top: 300px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    color: #887777;
+}
+
+.header-container{
+    margin-top: 50px;
+    margin-right: 60%;
+    margin-left: auto;
+}
+
+.form-container {
+    width: 500px;
+    padding: 20px;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    margin: 20px auto;
+    margin-bottom: 100px; /* Adjust this value as needed */
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+form {
+    display:flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Submit form design */
+input[type="text"], input[type="email"] {
+    padding: 10px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border: 1px solid #000000;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #0036a3;
+    color: white;
+    border: none;
+    border-radius: 10px; /* Corrected value */
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #4575d6;
+}
+
+/* Focus effect */
+input[type="text"]:focus, input[type="email"]:focus, input[type="submit"]:focus {
+    outline: none; /* Removes default outline */
+    border: 1px solid #4575d6; /* Blue border on focus */
+}
+
+.checkbox-wrapper-51 {
+    display: flex;
+    align-items: center; /* Aligns the toggle and label vertically */
+    margin-bottom: 10px;
+}
+
+.checkbox-wrapper-51 input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+}
+
+.checkbox-wrapper-51 .toggle {
+    position: relative;
+    display: block;
+    width: 42px;
+    height: 24px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-51 .toggle:before {
+    content: "";
+    position: relative;
+    top: 1px;
+    left: 1px;
+    width: 40px;
+    height: 22px;
+    display: block;
+    background: #c8ccd4; /* Default background color */
+    border-radius: 12px;
+    transition: background 0.2s ease;
+}
+
+.checkbox-wrapper-51 .toggle span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    display: block;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(154, 153, 153, 0.75);
+    transition: all 0.2s ease;
+}
+
+.checkbox-wrapper-51 .toggle span svg {
+    margin: 7px;
+    fill: none;
+}
+
+.checkbox-wrapper-51 .toggle span svg path {
+    stroke: #c8ccd4; /* Default stroke color */
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 24;
+    stroke-dashoffset: 0;
+    transition: all 0.5s linear;
+}
+
+.checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle:before {
+    background: #4575d6; /* Background color when checked */
+}
+
+.checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle span {
+    transform: translateX(18px); /* Moves the slider to the right when checked */
+}
+
+.checkbox-wrapper-51 input[type="checkbox"]:checked + .toggle span path {
+    stroke: #4575d6; /* Changes the stroke color when checked */
+    stroke-dasharray: 25;
+    stroke-dashoffset: 25;
+}
+
+.checkbox-wrapper-51 label {
+    margin-left: 10px; /* Space between toggle and text */
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+}
+
+.checkbox-wrapper-51:last-child {
+    margin-bottom: 20px; /* Adjust the value to increase/decrease space */
+}
