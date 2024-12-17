@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .completed strong {
+            font-size: 15px;
+            color: green;
+            display: inline-block;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        #task {
+            max-width: 600px;
+            height: 35px;
+        }
+        
+        .taskContainer label {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 30px;
+            color: #887777;
+        }
+        
+        .btn-primary {
+            width: 100%;
+            font-size: 30px;
+            padding: 1px 8px !important;
+            margin-top: 10px;
+        }
+        
+        .taskContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+            text-align: center;
+            margin-top: -15%; /* Less extreme negative margin */
+            position: relative;
+        }
+        
+        .form-control, .btn {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h2 {
+            position: relative;
+            left: 100px;
+            top: 50px;
+            font-size: 50px;
+            font-family: "Times New Roman", Times, serif;
+            color: #887777;
+            text-decoration: underline;
+        }
+        
+        .task-text {
+            font-size: 30px;
+            color: #555;
+            flex-grow: 1;
+            min-width: 200px;
+            padding: 0 10px;
+            text-align:left;
+            margin-left: 100px;
+        }
+        
+        ul.task-list {
+            list-style-type: none;
+            padding-left: 0;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        ul.task-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        
+        .arrow {
+            font-size: 20px;
+            color: black;
+            margin: 0 10px 0 -60px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .task-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 200px;
+            min-width: 200px;
+            margin-left:100px;
+        }
+        
+        /* Additional styles for consistent button sizes */
+        .btn-sm {
+            min-width: 120px;
+            height: 35px;
+            font-size: 14px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container mt-3">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        <strong>{{ category | capitalize }}:</strong> {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    
+    <!-- Navbar -->
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/todo">Todo-List</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/pomodoro">Pomodoro Timer</a>
+        </li>
+    </ul>
+
+    <h2>Your</h2>
+    <h2>Todo</h2>
+    <h2>list:</h2>
+
+    <!-- To-Do List Container -->
+    <div class="taskContainer">
+        <ul class="task-list">
+            {% for task in tasks %}
+            <li>
+                <div class="task-actions"> <!-- Actions first -->
+                    {% if not task.completed %}
+                        <form action="/markCompleted/{{ task.id }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-success btn-sm">Mark as completed</button>
+                        </form>
+                    {% else %}
+                        <form action="/delete_task/{{ task.id }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    {% endif %}
+                </div>
+                <span class="arrow">→</span>
+                <span class="task-text">{{ task.task }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+                
+        <!-- Add Task Form -->
+        <form action="/addTask" method="POST">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="task" name="task" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Task</button>
+        </form>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2024</p>
+            <p>Peter.Ditzel98@gmail.com</p>
+        </div>
+    </footer>
+</body>
+</html>

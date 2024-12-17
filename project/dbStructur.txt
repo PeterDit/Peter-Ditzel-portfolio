@@ -1,0 +1,17 @@
+Database Structure:
+PRAGMA table_info(users);
+0|id|INTEGER|0||1
+1|username|TEXT|1||0
+2|email|TEXT|1||0
+3|hash|TEXT|1||0
+
+or use:
+
+
+
+
+PRAGMA table_info(tasks);
+0|id|INTEGER|0||1
+1|user_id|INTEGER|1||0
+2|task|TEXT|1||0
+3|completed|BOOLEAN|1|0|0
