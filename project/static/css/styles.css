@@ -7,6 +7,7 @@ html, body {
     flex-direction: column;
     overflow: auto;
 }
+
 .video-container {
     width: 90%;
     height: 550px;
@@ -45,6 +46,11 @@ html, body {
     color: #887777;
 }
 
+.p2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    color: #79bedf;
+}
 .header-container h2 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 70px;
@@ -68,15 +74,45 @@ img {
 
 
 .nav-link {
-    color:rgb(0, 0, 0) !important;
+    color:#8a6d6d !important;
     font-size: 25px !important;
     padding: 10px 20px !important;
     font-weight: lighter !important;
-   
 }
 
+.authContainer {
+    margin-right: 20px;
+}
+
+/* Style the auth links */
+.authContainer .nav-login {
+    font-size: 10px;  /* Change font size */
+    color: #8a6d6d;   /* Change text color */
+    padding: 10px 20px;  /* Add padding */
+    text-decoration: none;  /* Remove underline */
+    background-color: #fff;  /* Add background color */
+    border: 1px solid #8a6d6d;  /* Border color */
+    border-radius: 5px;  /* Rounded corners */
+    margin: 5px;  /* Add space between the links */
+    transition: all 0.3s ease;  /* Smooth transition on hover */
+    
+}
+.authContainer {
+    display: flex;
+    margin-left: auto;
+    margin-top: -50px;
+}
+/* Change design on hover */
+.authContainer .nav-login:hover {
+    color: #fff;  /* Change text color on hover */
+    background-color: #8a6d6d;  /* Change background color on hover */
+    border-color: #8a6d6d;  /* Change border color on hover */
+}
+
+
+
 .nav-link:hover {
-    color: #8a6d6d !important;
+    color: #000000 !important;
 }
 
 footer {
@@ -143,6 +179,8 @@ label {
     box-sizing: border-box;
 }
 
+
+
 /* Submit form design */
 input[type="text"], input[type="email"] {
     padding: 10px;
@@ -164,11 +202,14 @@ input[type="submit"]:hover {
     background-color: #4575d6;
 }
 
+
 /* Focus effect */
 input[type="text"]:focus, input[type="email"]:focus, input[type="submit"]:focus {
     outline: none; /* Removes default outline */
     border: 1px solid #4575d6; /* Blue border on focus */
 }
+
+/* Checkbox toggler, etc */
 
 .checkbox-wrapper-51 {
     display: flex;
@@ -255,4 +296,14 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="submit"]:focus 
 
 .checkbox-wrapper-51:last-child {
     margin-bottom: 20px; /* Adjust the value to increase/decrease space */
+}
+
+
+/* Unsuccessfull register */
+.container.mt-4 {
+    margin-bottom: 40%;  
+    padding: 15px;     /* Add padding to the container */
+    max-width: 600px;  /* Adjust width if it's too wide */
+    margin-left: auto;
+    margin-right: auto; /* Center the flash message */
 }
