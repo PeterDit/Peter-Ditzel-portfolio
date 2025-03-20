@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Advanced Search</title>
+        <style>
+            input[type="submit"]:hover {
+                background-color: #1a8cff;
+                cursor: pointer;
+            }
+
+            input[type="submit"] {
+                color: white;
+                background-color: #3399ff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div style="text-align: right;">
+            <a href="index.html">Google search</a>
+            <a href="image.html">Google images</a>
+            <a href="adsearch.html">Advanced search</a>
+        </div>
+        <div style="text-align: center;margin-top: 100px;">
+            <h1>Google advanced search</h1>
+            <form action="https://www.google.com/search" method="get">
+                <h2>Find pages with...</h2>
+                <input type="text" placeholder="all these words:" name="as_q" style="border-radius: 25px; padding:10px; width: 300px;">
+                <br><br>
+                <input type="text" placeholder="this exact word or phrase:" name="as_epq" style="border-radius: 25px; padding:10px; width: 300px;">
+                <br><br>
+                <input type="text" placeholder="any of these words:" name="as_oq" style="border-radius: 25px; padding:10px; width: 300px;">
+                <br><br>
+                <input type="text" placeholder="none of these words:" name="as_eq" style="border-radius: 25px; padding:10px; width: 300px;">
+                <br><br>
+                <input type="submit" value="Google Search" style="border-radius: 5px; padding:10px;">
+            </form>
+        </div>
+    </body>
+
+</html>
