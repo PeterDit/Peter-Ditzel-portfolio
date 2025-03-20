@@ -5,16 +5,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils import timezone
-from datetime import datetime 
+from datetime import datetime, timedelta
 from .forms import ListingForm
 from django.contrib.auth.decorators import login_required
 from flask import Flask, flash 
 from .models import User, Listing, watchlistmodel, Category, Bid, Member
 from django.template import loader
 
+
 # Index page
 def index(request):
-    
     return render(request, "auctions/index.html")
 
 # Login user
@@ -235,14 +235,30 @@ def bid(request, listing_id):
             listings.save()
             messages.success(request, "Congratulations, you bid ${} on this item. ".format(new_bid.amount))
             return render(request, 'auctions/active_listings.html', {})
-        
-def endtime(request, listing_id):
-    listings = Listing.objects.get(pk=listing_id)
-    highest_bid = Bid.objects.filter(listing=listings).order_by('-amount').first()
     
-    created_at.listings = 
+# Calculate the endtime of a auction
+def endtime(request, listing_id):
+    duration_to_hours = {
+        "1 Day": 24,
+        "2 Days": 48,
+        "5 Days": 120,
+        "10 Days": 240
+    }
+    # Gets duration time
+    duration_time = request.POST['duration']
+    # Sets it to the hours from the list above
+    hours = duration_to_hours[duration_time] 
+    # Get Listing
+    listings = Listing.objects.get(pk=listing_id)
+    # Get Bid
+    highest_bid = Bid.objects.filter(listing=listings).order_by('-amount').first()
+    created_at = listings.created_at
+    current_time = timezone.now()
+    # Creating the end_time
+    end_time = created_at + timedelta(hours=hours)
     if listings.is_active is True:
-        if  created_at > listings.endtime:
+        # Compares end_time to current time, if condition true it prints out winner
+        if end_time < current_time:
             print("Congratulations", highest_bid.user, "You won the auction")
             listings.is_active = False
             listings.save()
