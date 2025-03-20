@@ -1,0 +1,64 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+
+    <h4>{{ listing.title }}</h4> 
+     {% if listing.image %}
+        <img src="{{ listing.image.url }}" alt="{{ listing.title }}">
+    {% else %}
+        No image available
+    {% endif %}
+    <p>Starting at : $ {{ listing.starting_bid }} </p>
+    <p>Highest bid : $ {{ listing.updated_bid }} </p>
+
+        <form method="POST" action="{% url 'bid' listing.id %}">
+            {% csrf_token %}
+            <div class="mb-3 row">  
+                <input class="col-sm-2 col-form-label mr-3" name="amount" type="number" placeholder="Amount">
+            <input class="btn btn-primary" type="submit" value="Bid">
+            </div>
+        </form>
+        
+         <p><h3> Description: 
+         {{ listing.description }}</h3></p>
+             <p><h3> Listed:
+              {{ listing.created_at }} </h3></p>
+
+      <form action="{% url 'add_watchlist' listing.id %}" method="post">
+                <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-lg">Add to watchlist</button>
+            </form>
+            <br>
+     <form action="{% url 'remove_watchlist' listing.id %}" method="POST">
+        <input type="hidden" name="listing_id" value="{{ listing.id }}">
+        {% csrf_token %}
+        <button type="submit" class="btn-outline-white btn btn-danger">Remove from watchlist</button>
+        <br>        <br>
+        <br>
+     </form>
+
+        <form action="{% url 'listing_detail' listing_id=listing_id %}" method="POST">
+            {% csrf_token %}
+            <label for="firstname">First name:</label><br>
+            <input type="text" id="firstname" name="firstname" ><br>
+            <label for="lastname">Last name:</label><br>
+            <input type="text" id="lastname" name="lastname" ><br>
+            <label for="lastname">Comment:</label><br>
+            <input type="text" id="comment" name="comment" ><br> <br>
+            <input type="submit">
+          </form> 
+          <br> <br>
+          <h1>Comments:</h1>
+
+          <table border="1">
+            {% for x in mymembers %}
+            <tr>
+                <td> {{ x.id }} </td>
+                <td> {{ x.firstname }} </td>
+                <td> {{ x.lastname }} </td>
+                <td>  {{ x.comment }} </td>
+            <tr>
+            {% endfor %}
+            </table>
+          
+{% endblock %}
