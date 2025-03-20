@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Image Search</title>
+        <style>
+            input[type="submit"]:hover {
+                background-color: #e6e6e6;
+                cursor: pointer;
+            }
+            input[type="submit"] {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div style="text-align: right;">
+            <a href="index.html">Google search</a>
+            <a href="image.html">Google images</a>
+            <a href="adsearch.html">Advanced search</a>
+        </div>
+        <div style="text-align: center; margin-top: 200px;">
+            <h1>Google image search</h1>
+            <form action="https://www.google.com/search">
+                <input type="text" name="q" style="border-radius: 25px; padding:10px; width: 300px;">
+                <input type="hidden" name="tbm" value="isch">
+                <br><br>
+                <input type="submit" value="Image Search" style="border-radius: 5px; padding:10px;">
+            </form>
+        </div>
+    </body>
+
+</html>

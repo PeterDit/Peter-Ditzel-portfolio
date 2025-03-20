@@ -1,0 +1,21 @@
+body {
+    padding: 100px;
+}
+img {
+    width: 200px;
+    height: 200px;
+}
+p {
+    color: rgb(8, 9, 8);
+    font-size: 30px;
+}
+h4 {
+    color:rgb(0, 0, 0);
+    font-size: 40px;
+}
+li {
+    list-style: none;
+}
+h3 {
+    font-size: 20px ;
+}

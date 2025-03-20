@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<h1>Active Listings</h1>
+<ul>
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+
+    {% for listing in listings %}
+        <li>
+            <hr>
+            <a href="{% url 'listing_detail' listing.id %}">
+            <h4>{{ listing.title }} </h4> 
+             {% if listing.image %}
+                <img src="{{ listing.image.url }}" alt="{{ listing.title }}">
+            {% else %}
+                No image available
+            {% endif %}
+            </a>
+            <p>Starting offer: $ {{ listing.starting_bid }} </p>
+            <p> Highest bid: $ {{ listing.updated_bid }} </p>
+                <p><h3> Listed:
+                    {{ listing.created_at }} 
+                    </p>
+                    Ends in: {{ listing.duration }}</h3></p>
+            
+            <form action="{% url 'add_watchlist' listing.id %}" method="post">
+                <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary btn-lg">Add to watchlist</button>
+            </form>
+            <br>
+            <form action="{% url 'remove_listings' listing.id %}" method="post">
+                <input type="hidden" name="listing_id" value="{{ listing.id }}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-dark m-1 btn-lg">Delete Listing</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
